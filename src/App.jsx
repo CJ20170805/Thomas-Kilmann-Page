@@ -2,12 +2,14 @@ import anime from 'animejs';
 import './App.css'
 import { useState } from 'react';
 import { useEffect } from 'react';
+import closeIcon from './assets/close.png';
 
 function App() {
 
   let [lineAnimationComplete, setLineAnimationComplete] = useState(false);
   let [textAnimationComplete, setTextAnimationComplete] = useState(false);
   let [videoPopupVisible, setVideoPopupVisible] = useState(false);
+  let [videoUrl, setVideoUrl] = useState('https://www.youtube.com/embed/2L7jhCyMhLc?si=YxVBtZJjEvCgMdAU');
 
   useEffect(() => {
     if (lineAnimationComplete) return;
@@ -138,14 +140,15 @@ function App() {
         <hr className='horizontalLine' />
       </div>
 
-     <div className={`video-popup ${videoPopupVisible? 'showVideoPopup': ''}`}>
+      <div className={`video-popup ${videoPopupVisible ? 'showVideoPopup' : ''}`}>
         <div className="video-popup-inner">
           <div className="video-desc">
-            <span>Title</span>
-            <span className="close-button" onClick={closePopup}>x</span>
+            <span></span>
+            <img className="close-button" onClick={closePopup} src={closeIcon} alt="" />
           </div>
           <div className="video-popup-content">
-              <video src="#"></video>
+            {videoPopupVisible &&
+              <iframe src={videoUrl} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>}
           </div>
         </div>
       </div>
