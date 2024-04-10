@@ -3,6 +3,11 @@ import './App.css'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import closeIcon from './assets/close.png';
+import a1 from './assets/a1.png';
+import a2 from './assets/a2.png';
+import a3 from './assets/a3.png';
+import a4 from './assets/a4.png';
+import a5 from './assets/a5.png';
 
 function App() {
 
@@ -86,9 +91,9 @@ function App() {
 
   }
 
-  function showVideo() {
+  function showVideo(url) {
     setVideoPopupVisible(true);
-
+    setVideoUrl(url);
     anime({
       targets: '.video-popup',
       opacity: 1,
@@ -110,30 +115,41 @@ function App() {
 
   return (
     <>
+    <h1 className='title'>Thomas Kilmann Conflict Management Model</h1>
       <h2 className='lineText verticalText'>ASSERTIVENESS</h2>
       <h2 className='lineText horizontalText'>COOPERATIVENESS</h2>
       <div className="flex-layout">
         <hr className='verticalLine' />
         <div className="mainBox">
           <div className="videoRow">
-            <div className="videoElement" onClick={showVideo}>
+            <div className="videoElement" onClick={()=>showVideo('https://www.youtube.com/embed/v7KH87y5nhA?si=s8VHpt-aT0zyM76B')}>
               {/* video goes here */}
+              <img src={a1} alt="" />
+              <h3 className='tit'>Accommodating Style</h3>
             </div>
-            <div className="videoElement" onClick={showVideo}>
+            <div className="videoElement" onClick={()=>showVideo('https://www.youtube.com/embed/aTitHXBRmPc?si=mNki9Vd_evRmLGHy')}>
               {/* video goes here */}
+              <img src={a2} alt="" />
+              <h3 className='tit'>Compromising Style</h3>
             </div>
           </div>
           <div className="videoRow">
-            <div className="videoElement" onClick={showVideo}>
+            <div className="videoElement" onClick={()=>showVideo('https://www.youtube.com/embed/RiGMy_nKe5I?si=0QMOi50T6gEqnSYB')}>
               {/* video goes here */}
+              <img src={a3} alt="" />
+              <h3 className='tit'>Competing Style</h3>
             </div>
           </div>
           <div className="videoRow">
-            <div className="videoElement" onClick={showVideo}>
+            <div className="videoElement" onClick={()=>showVideo('https://www.youtube.com/embed/BRrMNdej9VQ?si=KOaE6g8VjsicxUxN')}>
               {/* video goes here */}
+              <img src={a4} alt="" />
+              <h3 className='tit'>Collaborative Style</h3>
             </div>
-            <div className="videoElement" onClick={showVideo}>
+            <div className="videoElement" onClick={()=>showVideo('https://www.youtube.com/embed/W697UY8hXWM?si=l1Kk1iBjOe_yB09z')}>
               {/* video goes here */}
+              <img src={a5} alt="" />
+              <h3 className='tit'>Avoiding Style</h3>
             </div>
           </div>
         </div>
